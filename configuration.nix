@@ -52,13 +52,15 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = false;
   services.desktopManager.plasma6.enable = true;
   # services.windowManager.bspwm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    layout = "us,ru";
+    variant = ",";
+    options = "grp:alt_shift_toggle";
   };
 
   # Enable CUPS to print documents.
@@ -93,6 +95,7 @@
       kdePackages.kate
       google-chrome
       github-cli
+      telegram-desktop
     ];
     shell = pkgs.zsh;
   };
