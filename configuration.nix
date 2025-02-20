@@ -91,12 +91,6 @@
     isNormalUser = true;
     description = "ivan";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      google-chrome
-      github-cli
-      telegram-desktop
-    ];
     shell = pkgs.zsh;
   };
 
@@ -111,8 +105,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   home-manager
-
+   xclip
    vim
    neovim
    git
@@ -127,6 +120,11 @@
    feh
   #  wget
   ];
+
+  # fonts.packages = with pkgs; [ nerdfonts ];
+  # fonts.packages = with pkgs; [
+  #   nerd-fonts.hack
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
