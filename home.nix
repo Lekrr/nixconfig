@@ -1,16 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  # TODO please change the username & home directory to your own
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
-  # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
       kdePackages.kate
       google-chrome
       github-cli
       telegram-desktop
+      filelight
+
+      tree
   ];
 
   # home.file.".config/nvim" = {

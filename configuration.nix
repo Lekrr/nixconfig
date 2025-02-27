@@ -96,6 +96,17 @@
 
   programs.zsh.enable = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Perform garbage collection weekly to maintain low disk usage
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+  nix.settings.auto-optimise-store = true;
+  boot.loader.grub.configurationLimit = 10;
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -105,6 +116,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+   python3
+   gcc
    xclip
    vim
    neovim
@@ -118,7 +131,6 @@
    sxhkd
    rofi
    feh
-  #  wget
   ];
 
   # fonts.packages = with pkgs; [ nerdfonts ];
